@@ -1,0 +1,64 @@
+/* pages/purchase/purchase.wxss */
+.title{
+  margin-left:260rpx;
+  margin-top: 4vh;
+  font-weight: 400;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  letter-spacing: 0.2em;
+}
+.information{
+  margin-left: 110rpx;
+  margin-top: 4vh;
+}
+.personal{
+  height: 8vh;
+  width: 530rpx;
+  border-radius: 16rpx;
+  border-width: 1px;
+  border-style: solid;
+  border-block-color:grey;
+  margin-top: -1.2vh;
+  margin-bottom: 4.8%;
+  text-align: center;
+}
+.show{
+  display: inline-block;
+  background-color: white;
+  color: black;
+  margin-left: 25rpx; 
+  font-size: 22rpx;
+}
+.submit-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  line-height: 74rpx;
+  position: fixed;
+  margin-left: -70rpx;
+  background: #D08802;
+  border-radius: 16rpx;
+  width: 670rpx;
+  height: 74rpx;
+  position: fixed;
+  bottom: 2vh;
+}
+.id{
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: -4.4%;
+  margin-bottom: 2vh;
+}
+.gender{
+  width: 400rpx;
+  display: flex;
+  margin-left: 100rpx;
+  margin-top: 30rpx;
+}
+.confirm{
+  margin-left: 100rpx;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.72);
+  margin-top: 4vh;
+}

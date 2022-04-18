@@ -1,0 +1,47 @@
+<!--pages/user/user.wxml-->
+<view style="margin-top: 4.5vh;">
+  <image class="head"  src="{{userInfo.avatarUrl}}"> </image>
+  <view class="name">
+    <text>{{userInfo.nickName}}</text>
+  </view>
+</view>
+
+<view class="act-number">
+  <view class="tab-nav">
+    <view class="tab {{ showType == 0 ? 'active' : ''}}" bindtap="switchTab" data-index='0'>历史订单</view>
+    <view class="tab {{ showType == 1 ? 'active' : ''}}" bindtap="switchTab" data-index='1'>联系我们</view>
+  </view>
+</view>
+
+<view class="line"></view>
+
+<view wx:if="{{showType == 0 }}" class="li-box">
+  <view wx:if="{{hasUserInfo==true}}">
+  <view class="order" >
+    <view class="order-img">
+      <image></image>
+    </view>
+    <view class="order-detail">
+      <view class="order-title">剧目XXX</view>
+      <view class="order-time">
+        <view>时间</view>
+        <view style="margin-left: 5rpx;margin-right: 5rpx;">|</view>
+        <view>观众票</view>
+      </view>
+      <view class="order-place">地点</view>
+      <view class="order-number">订单号</view>
+    </view>
+  </view>
+
+
+  </view>
+</view>
+
+<view wx:if="{{showType == 1 }}" class="li-box">
+  <view class="contact">
+    <view class="contact-picture"></view>
+    <view class="contact-person">xxxx</view>
+    <view class="contact-picture"></view>
+    <view class="contact-person">xxxx</view>
+  </view>
+</view>

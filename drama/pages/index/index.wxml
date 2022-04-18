@@ -1,0 +1,15 @@
+<!--index.wxml
+<view class="container">
+</view>
+-->
+
+<image class="top" src="/images/firstPage.jpeg"></image>
+<view class="line"></view>
+<view class="bottom">
+  <view class="ticket">
+     <view bindtap="ticket" class="font">购票
+     </view>
+  </view>
+</view>
+
+

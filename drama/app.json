@@ -1,0 +1,28 @@
+{
+    "pages": [
+        "pages/ticket/ticket",
+        "pages/user/user",
+        "pages/purchase/purchase",
+        "pages/index/index"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "白镜戏局",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+
+    
+    "usingComponents": {
+        "van-stepper": "@vant/weapp/stepper/index",
+        "van-calendar": "@vant/weapp/calendar/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-divider": "@vant/weapp/divider/index",
+        "van-card": "@vant/weapp/card/index"
+    }
+}

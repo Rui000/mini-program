@@ -1,0 +1,264 @@
+<!--pages/ticket/ticket.wxml
+  被替换掉的日历插件
+  <calendar 
+      weeks-type="cn"
+      days-color="{{dayStyle}}"
+      binddayClick="dayClick"
+      cell-size="18"
+      calendar-style="calendar"
+      header-style="header" 
+      board-style="board" 
+      bindtap="nextMonth"
+  />
+-->
+<van-dialog
+ title="免责声明"
+ message="{{principle}}"
+ show="{{ dialog }}"
+ bind:close="onClose"
+ confirm-button-color="black"
+>
+</van-dialog>
+
+<view class="imagesize">
+  <image  mode="aspectFill"></image>
+</view>
+<view class="calsize"> 
+  <calendar 
+  id="calendar"
+  config="{{calendarConfig}}"
+  bind:onSwipe="onSwipe"
+    bind:whenChangeWeek="whenChangeWeek"
+    bind:whenChangeMonth="whenChangeMonth"
+    bind:takeoverTap="takeoverTap"
+    bind:afterTapDate="afterTapDate"
+    bind:afterCalendarRender="afterCalendarRender"
+    >
+  
+  </calendar>
+</view>
+<view class="act-number">
+  <view class="tab-nav">
+    <view class="tab {{ showType == 1 ? 'active' : ''}}" bindtap="switchTab" data-index='1'>场次1</view>
+    <view class="tab {{ showType == 2 ? 'active' : ''}}" bindtap="switchTab" data-index='2'>场次2</view>
+    <view class="tab {{ showType == 3 ? 'active' : ''}}" bindtap="switchTab" data-index='3'>场次3</view>
+    <view class="tab {{ showType == 4 ? 'active' : ''}}" bindtap="switchTab" data-index='4'>场次4</view>
+  </view>
+</view>
+
+
+<view wx:if="{{showType == 1 }}">
+  <scroll-view class = "scroll-size" scroll-y="true"  >
+    <view class="demo1">
+      <view class="description">
+        <view> 16:00</view>
+        <view style="margin-left: 240rpx; width: 86rpx;"> 参演票 </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">888</view>
+        <van-stepper 
+          style="margin-left: 30rpx;" 
+          value="{{ 0 }}" 
+          min= "0"
+          bind:change="onChange1st" 
+          disable-input="false" 
+          theme="round" 
+          input-width="40rpx" 
+          button-size="40rpx"/>
+      </view>
+      <view class="description-detail">
+      *描述***************************
+      *******************************
+      </view>
+      <view class="description">
+        <view> 16:00</view>
+        <view style="margin-left: 240rpx; width: 86rpx;"> 观众票 </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">666</view>
+        <van-stepper style="margin-left: 30rpx;" value="{{ 0 }}" min= "0"bind:change="onChange2nd" disable-input="false" theme="round" input-width="40rpx" button-size="40rpx"/>
+      </view>
+      <view class="description-detail">
+      *描述***************************
+      *******************************
+      </view>
+      <view class="description">
+        <view> 16:00</view>
+        <view style="margin-left: 240rpx; width: 86rpx;"> 下午茶 </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">66</view>
+        <van-stepper style="margin-left: 30rpx;" value="{{ 0 }}" min= "0"bind:change="onChange3rd" disable-input="false" theme="round" input-width="40rpx" button-size="40rpx"/>
+      </view>
+      <view class="description-detail">
+      *描述***************************
+      *******************************
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view wx:if="{{showType == 2 }}" class="li-box">
+  <scroll-view class = "scroll-size" scroll-y="true"  >
+    <view class="demo1" wx:for="{{ticketList}}"wx:key="index">
+      <view class="description" >
+        <view>{{item.time}}</view>
+        <view style="margin-left: 180rpx; width: 86rpx;"> {{item.type}} </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">{{item.price}}</view>
+        <van-stepper 
+          style="margin-left: 30rpx;" 
+          value="{{ 0 }}" 
+          min= "0"
+          max="{{item.stock_count}}"
+          bind:change="onChange"
+          data-price = "{{item.price}}"
+          data-index="{{index}}"
+          data-session="{{showType}}"
+          data-time="{{item.time}}"
+          data-type="{{item.type}}"
+          disable-input="false" 
+          theme="round" 
+          input-width="40rpx" 
+          button-size="40rpx"/>
+      </view>
+      <view wx:if="{{item.type==1}}" class="description-detail">
+      *描述1***************************
+      *******************************
+      </view>
+      <view wx:if="{{item.type==2}}" class="description-detail">
+      *描述2***************************
+      *******************************
+      </view>
+      <view wx:if="{{item.type==3}}" class="description-detail">
+      *描述3***************************
+      *******************************
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view wx:if="{{showType == 3 }}" class="li-box">
+  <scroll-view class = "scroll-size" scroll-y="true"  >
+    <view class="demo1" wx:for="{{ticketList}}"wx:key="index">
+      <view class="description" >
+        <view>{{item.time}}</view>
+        <view style="margin-left: 180rpx; width: 86rpx;"> {{item.type}} </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">{{item.price}}</view>
+        <van-stepper 
+          style="margin-left: 30rpx;" 
+          value="{{ 0 }}" 
+          min= "0"
+          max="{{item.stock_count}}"
+          bind:change="onChange"
+          data-price = "{{item.price}}"
+          data-index="{{index}}"
+          data-session="{{showType}}"
+          data-time="{{item.time}}"
+          data-type="{{item.type}}"
+          disable-input="false" 
+          theme="round" 
+          input-width="40rpx" 
+          button-size="40rpx"/>
+      </view>
+      <view wx:if="{{item.type==1}}" class="description-detail">
+      *描述1***************************
+      *******************************
+      </view>
+      <view wx:if="{{item.type==2}}" class="description-detail">
+      *描述2***************************
+      *******************************
+      </view>
+      <view wx:if="{{item.type==3}}" class="description-detail">
+      *描述3***************************
+      *******************************
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view wx:if="{{showType == 4 }}" class="li-box">
+  <scroll-view class = "scroll-size" scroll-y="true"  >
+    <view class="demo1">
+      <view class="description">
+        <view> 16:00</view>
+        <view style="margin-left: 240rpx; width: 86rpx;"> 参演票 </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">888</view>
+        <van-stepper 
+          style="margin-left: 30rpx;" 
+          value="{{ 0 }}" 
+          min= "0"
+          bind:change="onChange1st" 
+          disable-input="false" 
+          theme="round" 
+          input-width="40rpx" 
+          button-size="40rpx"/>
+      </view>
+      <view class="description-detail">
+      *描述***************************
+      *******************************
+      </view>
+      <view class="description">
+        <view> 16:00</view>
+        <view style="margin-left: 240rpx; width: 86rpx;"> 观众票 </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">666</view>
+        <van-stepper style="margin-left: 30rpx;" value="{{ 0 }}" min= "0"bind:change="onChange2nd" disable-input="false" theme="round" input-width="40rpx" button-size="40rpx"/>
+      </view>
+      <view class="description-detail">
+      *描述***************************
+      *******************************
+      </view>
+      <view class="description">
+        <view> 16:00</view>
+        <view style="margin-left: 240rpx; width: 86rpx;"> 下午茶 </view>
+        <view style="color: #9B9B9B;">¥</view>
+        <view style="color: #9B9B9B;width: 50rpx;">66</view>
+        <van-stepper style="margin-left: 30rpx;" value="{{ 0 }}" min= "0" bind:change="onChange3rd" disable-input="false" theme="round" input-width="40rpx" button-size="40rpx"/>
+      </view>
+      <view class="description-detail">
+      *描述***************************
+      *******************************
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="section">
+  <form bindsubmit="bindFormSubmit" >
+    <view style="display: flex;" >
+      <input class="coupon" style="height: 54rpx;width: 480rpx;" placeholder="请输入折扣码" placeholder-style="color:grey;font-size:20rpx;"  name="coupon"></input>
+      <button class="submit-button" form-type="submit"> 提交 </button>
+    </view>
+  </form>
+
+  <view wx:if="{{isTure}}" class="coupon-number">
+    <view>{{discount}}</view>
+    <view>折扣:</view>
+    <view>{{promoPrice}}</view>
+    <form bindsubmit="removeSubmit" >
+        <button class="cancle-button" form-type="submit"> 取消 </button>
+    </form>
+  </view>
+  <view  wx:if="{{!isTure}}" class="total">总计:{{total}}</view>
+  <view  wx:else="{{isTure}}" class="total">总计:{{total}}</view>
+</view>
+
+<view class="buy">
+  <view 
+  bindtap="jumptoPurchase" 
+  class="font" 
+  data-openid="{{openid}}"
+  data-num="{{ticketNumber}}"
+  data-promo="{{discount}}"
+  data-total="{{total}}"
+  >立即购买</view>
+</view>
+
+<movable-area class="movable-area">
+    <movable-view  class="movable-view" direction="all">
+      <image class = "img" src="../../images/user.svg"> </image>
+      <button  bindtap="getUserProfile" class="toUser"></button>
+    </movable-view> 
+</movable-area>
+
+

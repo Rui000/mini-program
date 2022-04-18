@@ -1,0 +1,42 @@
+<!--pages/purchase/purchase.wxml-->
+<view class="title">请先填写个人信息</view>
+<view class="information">
+  <form bindsubmit="bindFormSubmit" >
+      <view class="show">姓名</view>
+      <input class="personal" type="text" bindinput="userNameInput"></input>
+      <view class="show">身份证号</view>
+      <input class="personal" type="text" bindinput="userIdInput"></input>
+      <view class="id">*若使用非身份证证件请备注证件类型 例：护照号E12345556</view>
+      <view class="show">手机号/邮箱</view>
+      <input class="personal" type="text" bindinput="userPhoneInput"></input>
+
+      <view class="show">性别</view>
+      <view class="personal">
+        <radio-group bindchange="radioChange" style="display: flex;">
+          <label  class="gender" wx:for="{{items}}" wx:key="select">
+            <view>
+              <radio color=" #D08802" style="transform: scale(0.6)" value="{{item.select}}" checked="true"/>
+            </view>
+            <view>{{item.gender}}</view>
+          </label>
+      </radio-group>
+      </view>
+      <view class="show">生日</view>
+      <view class="personal">
+        <view style="margin-top: 0.5vh;margin-left: 150rpx;">
+          <van-cell  title="{{text}}" border="{{false}}" size="small" icon="{{iconName}}" value="{{ date }}" bind:click="onDisplay" />
+          <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+        </view>
+      </view>
+      <view class="confirm">
+        <radio color="#D08802" style="transform: scale(0.6)" value="confirm">
+        以上为真实有效个人信息
+        </radio>
+      </view>
+      
+      <button 
+      class="submit-button" 
+      form-type="submit" 
+      > 继续购买 </button>
+  </form>
+</view>

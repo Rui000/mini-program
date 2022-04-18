@@ -1,0 +1,46 @@
+/**index.wxss**/
+.top{
+position: absolute;
+width: 750rpx;
+height: 80%;
+left: 0px;
+top: 0px;
+}
+.bottom{
+position: absolute;
+width: 750rpx;
+height: 20%;
+left: 0px;
+top:80%;
+background: linear-gradient(94.07deg, #8C2A31 3.34%, #DE9500 96.7%);
+mix-blend-mode: normal;
+}
+.line{
+position: absolute;
+width: 750rpx;
+height: 0px;
+top: 79.5%;
+border: 1rpx dashed #FFFFFF;
+}
+.ticket{
+position: absolute;
+width: 300rpx;
+height: 65px;
+left: 224rpx;
+margin-top:5%;
+background: #FFFFFF;
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 30rpx;
+}
+.font{
+font-family: PingFang SC;
+font-style: normal;
+font-weight: normal;
+font-size: 52rpx;
+line-height: 65px;
+align-items: center;
+text-align: center;
+letter-spacing: 0.5em;
+text-transform: capitalize;
+}
